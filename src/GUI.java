@@ -28,16 +28,9 @@ public class GUI extends Application {
             e.printStackTrace();
         }
 
-        try {
-            Button button = FXMLLoader.load(getClass().getResource("wbutton"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         Scene scene = new Scene(root, 800, 600);
 
-        primaryStage.setTitle("FXML Welcome");
+        primaryStage.setTitle("Base de données des médecins");
         primaryStage.setScene(scene);
         primaryStage.show();
 
