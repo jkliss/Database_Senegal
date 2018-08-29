@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="mysql-connector-java-8.0.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/mysql-connector-java-8.0.12.jar!/"/>
+	</lib>
+	<lib name="output.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/output.jar!/"/>
+	</lib>
+</component>
