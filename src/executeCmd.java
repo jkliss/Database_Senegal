@@ -18,6 +18,7 @@ public class executeCmd {
 		String host = "";
 		String password = "";
 		String user = "";
+
 		try {
 			System.out.println("\nMYSQL-USER:");
 			user = in.readLine();

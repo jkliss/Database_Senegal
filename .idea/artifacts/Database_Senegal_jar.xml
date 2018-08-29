@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Database_Senegal:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Database_Senegal_jar</output-path>
+    <root id="archive" name="Database_Senegal.jar">
+      <element id="module-output" name="Database_Senegal" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/mysql-connector-java-8.0.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/output.jar" path-in-jar="/" />
+      <element id="library" level="module" name="mysql-connector-java-8.0.12.jar" module-name="Database_Senegal" />
+    </root>
+  </artifact>
+</component>
