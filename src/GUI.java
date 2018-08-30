@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,6 @@ import java.io.IOException;
 
 
 public class GUI extends Application {
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -28,7 +28,7 @@ public class GUI extends Application {
             e.printStackTrace();
         }
 
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root);
 
         primaryStage.setTitle("Base de données des médecins");
         primaryStage.setScene(scene);
