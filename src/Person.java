@@ -1,3 +1,5 @@
+import javafx.collections.ObservableArray;
+
 import java.sql.Date;
 
 public class Person {
@@ -6,6 +8,12 @@ public class Person {
     String location;
     Date birthday;
     Date dateOfLastInspection;
+
+    public Person(String firstname, String lastname, String location){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.location = location;
+    }
 
     public Date getBirthday() {
         return birthday;

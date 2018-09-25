@@ -1,8 +1,15 @@
+
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.collections.FXCollections;
 
 import java.util.LinkedList;
 
 public class TableCreator {
+    private ObservableList<Person> data;
+    private TableView<Person> table;
+
     public TableColumn createTable(){
         TableColumn<String, String> createdTable = new TableColumn<String, String>("User Name");;
 
@@ -18,5 +25,19 @@ public class TableCreator {
             }
         }
         return tableColumns;
+    }
+
+    public void setData(ObservableList<Person> data) {
+        getInitialTableData();
+        table.setItems(data);
+    }
+
+    public ObservableList<Person> getInitialTableData(){
+        data = FXCollections.observableArrayList(    new Person("Jacob", "Smith", "jacob.smith@example.com"),
+                new Person("Isabella", "Johnson", "isabella.johnson@example.com"),
+                new Person("Ethan", "Williams", "ethan.williams@example.com"),
+                new Person("Emma", "Jones", "emma.jones@example.com"),
+                new Person("Michael", "Brown", "michael.brown@example.com"));
+        return data;
     }
 }
