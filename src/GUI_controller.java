@@ -45,6 +45,14 @@ public class GUI_controller {
     private ObservableList<Person> data;
 
     public void pushedLowerButton(javafx.event.ActionEvent actionEvent) {
+        /**
+         * Submit button
+         * Todo:
+         * Hinzufügen von Spalten +
+         * Entfernen von Spalten  -
+         * Einfügen von Zeilen    -
+         */
+
         //Window owner = wbutton.getScene().getWindow();
 
         left_status.setText("SET NAME TO " + in_name.getText());
