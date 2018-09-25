@@ -1,10 +1,12 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Window;
-
-
+import javafx.util.Duration;
 
 public class GUI_controller {
     @FXML
@@ -12,6 +14,9 @@ public class GUI_controller {
 
     @FXML
     private Label left_status;
+
+    @FXML
+    private Label right_status;
 
     @FXML
     private DatePicker in_birthday;
@@ -40,7 +45,8 @@ public class GUI_controller {
     private ObservableList<Person> data;
 
     public void pushedLowerButton(javafx.event.ActionEvent actionEvent) {
-        Window owner = wbutton.getScene().getWindow();
+        //Window owner = wbutton.getScene().getWindow();
+
         left_status.setText("SET NAME TO " + in_name.getText());
 
         TableCreator tc = new TableCreator();
@@ -56,5 +62,23 @@ public class GUI_controller {
         table.setItems(data);
 
         table.getColumns().addAll(firstCol, secondCol);
+    }
+
+    public void startOnlineCheck(){
+        Connectivity con = new Connectivity();
+        con.setLabel(right_status);
+        right_status.setText("<checking...>");
+        Timeline fiveSecondsOnlineCheck = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (con.pingServer("127.0.0.1")) {
+                    right_status.setText("Online");
+                } else {
+                    right_status.setText("Offline");
+                }
+            }
+        }));
+        fiveSecondsOnlineCheck.setCycleCount(Timeline.INDEFINITE);
+        fiveSecondsOnlineCheck.play();
     }
 }
