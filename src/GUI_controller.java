@@ -47,7 +47,7 @@ public class GUI_controller {
     public void pushedLowerButton(javafx.event.ActionEvent actionEvent) {
         /**
          * Submit button
-         * Todo:
+         * t odo:
          * Hinzufügen von Spalten +
          * Entfernen von Spalten  -
          * Einfügen von Zeilen    -
