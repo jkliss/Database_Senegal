@@ -1,43 +1,22 @@
-import javafx.application.Platform;
 import javafx.scene.control.Label;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
-import java.net.InetAddress;
-
-public class Connectivity implements Runnable {
+public class Connectivity {
     Label label;
 
-    public boolean pingServer(String ip){
-        boolean online = false;
-        try{
-            InetAddress address = InetAddress.getByName(ip);
-            online = address.isReachable(100);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return online;
-    }
 
-    public void updateLoop(){
-        while(true){
-            if(pingServer("127.0.0.1")){
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                        label.setText("Online");
-                    }
-                });
-            } else {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        label.setText("Online");
-                    }
-                });
+    public boolean isReachable(String addr, int openPort, int timeOutMillis) {
+        // Any Open port on other machine
+        // openPort =  22 - ssh, 80 or 443 - webserver, 25 - mailserver etc.
+        try {
+            try (Socket soc = new Socket()) {
+                soc.connect(new InetSocketAddress(addr, openPort), timeOutMillis);
             }
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            return true;
+        } catch (IOException ex) {
+            return false;
         }
     }
 
@@ -46,8 +25,4 @@ public class Connectivity implements Runnable {
         this.label = label;
     }
 
-    @Override
-    public void run() {
-        updateLoop();
-    }
 }

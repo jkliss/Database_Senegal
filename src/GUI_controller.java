@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class GUI_controller {
@@ -75,18 +76,24 @@ public class GUI_controller {
     public void startOnlineCheck(){
         Connectivity con = new Connectivity();
         con.setLabel(right_status);
-        right_status.setText("<checking...>");
+        right_status.setText("<checking connection status>");
         Timeline fiveSecondsOnlineCheck = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (con.pingServer("127.0.0.1")) {
+                if (con.isReachable("216.58.207.67", 80, 1000)) { //google 216.58.207.67 - port 80 webserver
                     right_status.setText("Online");
+                    right_status.setTextFill(Color.LIMEGREEN);
                 } else {
                     right_status.setText("Offline");
+                    right_status.setTextFill(Color.RED);
                 }
             }
         }));
         fiveSecondsOnlineCheck.setCycleCount(Timeline.INDEFINITE);
         fiveSecondsOnlineCheck.play();
+    }
+
+    public void initialize(){
+        startOnlineCheck();
     }
 }
