@@ -70,6 +70,7 @@ public class GUI_controller {
         );
         table.setItems(data);
 
+        table.getColumns().removeAll();
         table.getColumns().addAll(firstCol, secondCol);
     }
 
