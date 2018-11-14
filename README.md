@@ -2,6 +2,7 @@
 # Todo:
 - Buffer für Offlinebetrieb [Sowohl Abfrage als auch Insert]
 - Scenes für Select/Insert wechseln über Menü
+  - <b> Verbinden der SQL-Methoden mit Eingaben/Ausgaben im GUI!  </b>
   - Ausgabe über das Menü
   - View Methoden direkt nach Eingabe der Insert Methoden 
   - Liste der Krankheiten als Patienten-Information hinzufügen
