@@ -45,33 +45,36 @@ public class GUI_controller {
 
     private ObservableList<Person> data;
 
-    public void pushedLowerButton(javafx.event.ActionEvent actionEvent) {
+    public void pushedLowerButton(ActionEvent actionEvent) {
         /**
          * Submit button
-         * t odo:
+         * t-odo:
          * Hinzufügen von Spalten +
          * Entfernen von Spalten  -
-         * Einfügen von Zeilen    -
+         * Einfügen von Zeilen    +
          */
 
-        //Window owner = wbutton.getScene().getWindow();
-
         left_status.setText("SET NAME TO " + in_name.getText());
+        table.getColumns().clear();
 
         TableCreator tc = new TableCreator();
         data = tc.getInitialTableData();
-        TableColumn firstCol = new TableColumn("Primary");
-        TableColumn secondCol = new TableColumn("Secondary");
-        firstCol.setCellValueFactory(
-                new PropertyValueFactory<Person,String>("firstName")
+        TableColumn fnameCol = new TableColumn("First Name");
+        TableColumn snameCol = new TableColumn("Last Name");
+        TableColumn emailCol = new TableColumn("Email");
+        // PropertyValueFactory String has to be according to Person Class
+        fnameCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("firstname")
         );
-        secondCol.setCellValueFactory(
-                new PropertyValueFactory<Person,String>("firstName")
+        snameCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("lastname")
+        );
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("location")
         );
         table.setItems(data);
 
-        table.getColumns().removeAll();
-        table.getColumns().addAll(firstCol, secondCol);
+        table.getColumns().addAll(fnameCol, snameCol, emailCol);
     }
 
     public void startOnlineCheck(){

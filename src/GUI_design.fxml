@@ -9,7 +9,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -146,12 +145,7 @@
                 </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="table" layoutX="-157.0" prefHeight="549.0" prefWidth="602.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
+                  <TableView fx:id="table" layoutX="-157.0" prefHeight="549.0" prefWidth="602.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
             </items>
