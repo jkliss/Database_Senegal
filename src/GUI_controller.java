@@ -58,15 +58,7 @@ public class GUI_controller {
     private ObservableList<Person> data;
 
     public void pushedLowerButton(ActionEvent actionEvent) {
-
-
-        /**
-         * Submit button
-         * t-odo:
-         * Hinzufügen von Spalten +
-         * Entfernen von Spalten  -
-         * Einfügen von Zeilen    +
-         */
+        // Funktion ist obsolet ... wird in separaten Panes gemacht
 
         left_status.setText("SET NAME TO " + in_name.getText());
         table.getColumns().clear();
