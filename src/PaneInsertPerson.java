@@ -13,26 +13,7 @@ public class PaneInsertPerson {
 
 
     public void pushedLowerButton(ActionEvent actionEvent) {
-
-        table.getColumns().clear();
-
-        TableCreator tc = new TableCreator();
-        data = tc.getInitialTableData();
-        TableColumn fnameCol = new TableColumn("First Name");
-        TableColumn snameCol = new TableColumn("Last Name");
-        TableColumn emailCol = new TableColumn("Email");
-        // PropertyValueFactory String has to be according to Person Class
-        fnameCol.setCellValueFactory(
-                new PropertyValueFactory<Person,String>("firstname")
-        );
-        snameCol.setCellValueFactory(
-                new PropertyValueFactory<Person,String>("lastname")
-        );
-        emailCol.setCellValueFactory(
-                new PropertyValueFactory<Person,String>("location")
-        );
-        table.setItems(data);
-
-        table.getColumns().addAll(fnameCol, snameCol, emailCol);
+        TableCreator tableCreator = new TableCreator();
+        tableCreator.basicTable(table);
     }
 }

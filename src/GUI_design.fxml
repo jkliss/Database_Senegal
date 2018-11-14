@@ -27,8 +27,8 @@
                 <Menu mnemonicParsing="false" text="User" />
                 <Menu mnemonicParsing="false" text="Mode">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#changeToPaneInsertPerson" text="Switch to Person Search" />
-                  <MenuItem mnemonicParsing="false" onAction="#changeToPaneSearchPerson" text="Switch to Insert Person" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToPaneSearchPerson" text="Switch to Person Search" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToPaneInsertPerson" text="Switch to Insert Person" />
                </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
