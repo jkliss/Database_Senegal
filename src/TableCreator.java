@@ -82,4 +82,50 @@ public class TableCreator {
         table.getColumns().addAll(fnameCol, snameCol);
         return table;
     }
+
+    public TableView insertResultTable(TableView table, ObservableList<Person> data){
+        table.getColumns().clear();
+        TableColumn fnameCol = new TableColumn("First Name");
+        TableColumn snameCol = new TableColumn("Last Name");
+        TableColumn emailCol = new TableColumn("Email");
+        TableColumn birthdayCol = new TableColumn("Birthday");
+        TableColumn addressCol = new TableColumn("Address");
+        TableColumn telephoneCol = new TableColumn("Telephone");
+        //TableColumn dateCol = new TableColumn("Date");
+        TableColumn treatmentCol = new TableColumn("Treatment");
+        //TableColumn villageCol = new TableColumn("Village");
+
+        // PropertyValueFactory String has to be according to Person Class
+        fnameCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("firstname")
+        );
+        snameCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("lastname")
+        );
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("email")
+        );
+        birthdayCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("birthday")
+        );
+        addressCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("address")
+        );
+        telephoneCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("telephone")
+        );
+        //dateCol.setCellValueFactory(
+        //        new PropertyValueFactory<Person,String>("date")
+        //);
+        treatmentCol.setCellValueFactory(
+                new PropertyValueFactory<Person,String>("treatment")
+        );
+        //villageCol.setCellValueFactory(
+        //        new PropertyValueFactory<Person,String>("village")
+        //);
+
+        table.setItems(data);
+        table.getColumns().addAll(fnameCol, snameCol, emailCol, birthdayCol, addressCol, telephoneCol, treatmentCol);
+        return table;
+    }
 }

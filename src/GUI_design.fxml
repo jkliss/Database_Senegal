@@ -69,7 +69,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="in_name" prefHeight="33.0" prefWidth="268.0" text="root" />
+                              <TextField fx:id="in_name" prefHeight="33.0" prefWidth="268.0" text="user" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="124.0" prefHeight="33.0" prefWidth="415.0">
@@ -79,7 +79,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <PasswordField fx:id="in_password" prefHeight="33.0" prefWidth="268.0" />
+                              <PasswordField fx:id="in_password" prefHeight="33.0" prefWidth="268.0" text="pas1P----" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="157.0" prefHeight="33.0" prefWidth="415.0">

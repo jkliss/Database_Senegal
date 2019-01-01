@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_anchor" focusTraversable="true" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PaneInsertPerson" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+<AnchorPane fx:id="main_anchor" focusTraversable="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PaneInsertPerson">
     <children>
         <SplitPane fx:id="splitpane" dividerPositions="0.3" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
@@ -92,6 +92,7 @@
                                 <TextField fx:id="in_address" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                 <TextField fx:id="in_email" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                 <TextField fx:id="in_telephone" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                <Button fx:id="wlbutton" mnemonicParsing="false" onAction="#pushedLowerLeftButton" prefHeight="109.0" prefWidth="155.0" text="Show Patients" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
                             </children>
                         </GridPane>
                     </children>

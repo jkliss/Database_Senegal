@@ -3,10 +3,17 @@ import javafx.collections.ObservableArray;
 import java.sql.Date;
 
 public class Person {
+    String date;
+    String treatment;
+    String village;
+    String address;
+    String email;
+    String telephone;
+    String birthday;
     String firstname;
     String lastname;
     String location;
-    Date birthday;
+    int patientID;
     Date dateOfLastInspection;
 
     public Person(String firstname, String lastname, String location){
@@ -15,7 +22,32 @@ public class Person {
         this.location = location;
     }
 
-    public Date getBirthday() {
+    public Person(String firstname, String lastname, String date, String treatment, String village, String birthday, String address, String email, String telephone){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.date = date;
+        this.treatment = treatment;
+        this.village = village;
+        this.birthday = birthday;
+        this.address = address;
+        this.email = email;
+        this.telephone = telephone;
+    }
+
+    public Person(int patientID, String firstname, String lastname, String treatment, String birthday, String address, String email, String telephone){
+        this.patientID = patientID;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthday = birthday;
+        this.address = address;
+        this.email = email;
+        this.telephone = telephone;
+        this.treatment = treatment;
+    }
+
+
+
+    public String getBirthday() {
         return birthday;
     }
 
@@ -35,8 +67,32 @@ public class Person {
         return location;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public String getEmail(){
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public String getVillage() {
+        return village;
     }
 
     public void setDateOfLastInspection(Date dateOfLastInspection) {
