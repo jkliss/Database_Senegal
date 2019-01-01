@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 public class GUI_controller {
     @FXML
@@ -55,7 +56,30 @@ public class GUI_controller {
     @FXML
     private AnchorPane main_anchor;
 
+    @FXML
+    private TextField in_port;
+
+    @FXML
+    private TextField in_password;
+
+    @FXML
+    private TextField in_host;
+
     private ObservableList<Person> data;
+
+    private Connection connection;
+
+    private boolean connected = false;
+
+    private String port = "";
+
+    private String host = "";
+
+    private String name = "";
+
+    private String password = "";
+
+    public static IOManager ioManager = new IOManager();
 
     public void pushedLowerButton(ActionEvent actionEvent) {
         // Funktion ist obsolet ... wird in separaten Panes gemacht
@@ -91,13 +115,22 @@ public class GUI_controller {
             @Override
             public void handle(ActionEvent event) {
                 long startTime = System.currentTimeMillis();
-                if (con.isReachable("216.58.207.67", 80, 1000)) { //google 216.58.207.67 - port 80 webserver
+                if(connected && con.isReachable(host, Integer.parseInt(port), 1000)){
+                    // Ping to MySQL Webserver specified by user
                     right_status.setText("Online");
                     right_status.setTextFill(Color.LIMEGREEN);
                     long stopTime = System.currentTimeMillis();
                     long elapsedTime = stopTime - startTime;
                     left_status.setText("Ping: " + Long.toString(elapsedTime) + "ms");
+                } else if (con.isReachable("216.58.207.67", 80, 1000)) { //google 216.58.207.67 - port 80 webserver
+                    // Ping to Google Webserver to assess general internet connectivity
+                    right_status.setText("Online <No Session connected>");
+                    right_status.setTextFill(Color.YELLOW);
+                    long stopTime = System.currentTimeMillis();
+                    long elapsedTime = stopTime - startTime;
+                    left_status.setText("Ping: " + Long.toString(elapsedTime) + "ms");
                 } else {
+                    // No internet connection at all
                     right_status.setText("Offline");
                     right_status.setTextFill(Color.RED);
                     left_status.setText("<host unreachable>");
@@ -108,7 +141,6 @@ public class GUI_controller {
         fiveSecondsOnlineCheck.play();
     }
 
-
     public void makeAScene(){
         GridPane gridPane = new GridPane();
         gridPane.addColumn(2);
@@ -117,30 +149,37 @@ public class GUI_controller {
         left_anchor.getChildren().add(gridPane);
     }
 
-    public void changeScene(){
-        try {
-            Object load = FXMLLoader.load(getClass().getResource("Pane_Search_Person.fxml"));
-            left_anchor.getChildren().setAll((Node) load);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void changeToPaneInsertPerson(){
-        try {
-            Object load = FXMLLoader.load(getClass().getResource("Pane_Insert_Person.fxml"));
-            main_anchor.getChildren().setAll((Node) load);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (connected){
+            try {
+                Object load = FXMLLoader.load(getClass().getResource("Pane_Insert_Person.fxml"));
+                main_anchor.getChildren().setAll((Node) load);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Info");
+            alert.setHeaderText("Please connect to the database first");
+            alert.showAndWait();
         }
+
     }
 
     public void changeToPaneSearchPerson(){
-        try {
-            Object load = FXMLLoader.load(getClass().getResource("Pane_Search_Person.fxml"));
-            main_anchor.getChildren().setAll((Node) load);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(connected){
+            try {
+                Object load = FXMLLoader.load(getClass().getResource("Pane_Search_Person.fxml"));
+                main_anchor.getChildren().setAll((Node) load);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Info");
+            alert.setHeaderText("Please connect to the database first");
+            alert.showAndWait();
         }
     }
 
@@ -149,8 +188,25 @@ public class GUI_controller {
         alert.setTitle("Help Window");
         alert.setHeaderText("Hello fellow this is the help section!");
         alert.setContentText("To switch Panes select switch Panes");
-
         alert.showAndWait();
+    }
+
+    public void start_session(){
+        name = in_name.getText();
+        host = in_host.getText();
+        port = in_port.getText();
+        password = in_password.getText();
+        System.out.println("Start Session with credentials: " + host + ":" + port + " " + name + " " + password);
+        connected = ioManager.connectToMysql("host=" + host + ",port="+ port + ",serverTimezone=UTC,useSSL=false,verifyServerCertificate=true,allowPublicKeyRetrieval=true", "mydb", name, password);
+        if(!connected){
+            System.out.println("[-] Could not establish connection");
+            connected = false;
+        } else {
+            System.out.println("[+] Connected to MySQL DB");
+            connected = true;
+        }
+        // only for testing always true
+        connected = true;
     }
 
     public void initialize(){

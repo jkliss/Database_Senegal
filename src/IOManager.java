@@ -9,12 +9,13 @@ import java.sql.DriverManager;
 
 public class IOManager {
 	public Connection connection;
+	public String host;
 	public IOManager() {
 	 
 	}
 	
 	public boolean connectToMysql(String host, String database, String user, String passwd)	{
-	
+	    this.host = host;
 		try	{
 		//com.microsoft.sqlserver.jdbc.SQLServerDriver
 		Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -39,6 +40,9 @@ public class IOManager {
 			return false;
 		}
 	}
-	
+
+	public Connection getConnection() {
+		return connection;
 	}
+}
 

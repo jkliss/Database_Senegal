@@ -15,5 +15,6 @@ public class PaneInsertPerson {
     public void pushedLowerButton(ActionEvent actionEvent) {
         TableCreator tableCreator = new TableCreator();
         tableCreator.basicTable(table);
+        System.out.println("pressed in new view");
     }
 }

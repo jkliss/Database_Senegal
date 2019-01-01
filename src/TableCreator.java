@@ -13,7 +13,7 @@ public class TableCreator {
     private TableView<Person> table;
 
     public TableColumn createTable(){
-        TableColumn<String, String> createdTable = new TableColumn<String, String>("User Name");;
+        TableColumn<String, String> createdTable = new TableColumn<String, String>("User Name");
 
         return createdTable;
     }
@@ -66,10 +66,8 @@ public class TableCreator {
         return table;
     }
 
-    public TableView searchTable(TableView table){
+    public TableView searchTable(TableView table, ObservableList<Person> data){
         table.getColumns().clear();
-
-        data = getInitialTableData();
         TableColumn fnameCol = new TableColumn("First Name");
         TableColumn snameCol = new TableColumn("Last Name");
         // PropertyValueFactory String has to be according to Person Class
