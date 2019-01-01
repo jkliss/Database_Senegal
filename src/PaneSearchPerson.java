@@ -28,7 +28,7 @@ public class PaneSearchPerson {
 
     public ObservableList<Person> searchPerson(Connection connection){
         ObservableList<Person> data = FXCollections.observableArrayList();
-        String query = "SELECT * FROM doctor WHERE family_name ALIKE \"%"+in_lastname.getText()+"%\" and first_name = \"%"+in_name.getText()+"%\"";
+        String query = "SELECT * FROM doctor WHERE family_name LIKE \"%"+in_lastname.getText()+"%\" and first_name LIKE \"%"+in_name.getText()+"%\"";
         System.out.println("[*] "+query+":");
         Statement stmt = null;
         try {

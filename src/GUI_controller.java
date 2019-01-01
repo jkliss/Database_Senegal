@@ -125,7 +125,7 @@ public class GUI_controller {
                 } else if (con.isReachable("216.58.207.67", 80, 1000)) { //google 216.58.207.67 - port 80 webserver
                     // Ping to Google Webserver to assess general internet connectivity
                     right_status.setText("Online <No Session connected>");
-                    right_status.setTextFill(Color.YELLOW);
+                    right_status.setTextFill(Color.BLUEVIOLET);
                     long stopTime = System.currentTimeMillis();
                     long elapsedTime = stopTime - startTime;
                     left_status.setText("Ping: " + Long.toString(elapsedTime) + "ms");
@@ -205,8 +205,6 @@ public class GUI_controller {
             System.out.println("[+] Connected to MySQL DB");
             connected = true;
         }
-        // only for testing always true
-        connected = true;
     }
 
     public void initialize(){
