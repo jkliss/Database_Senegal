@@ -42,7 +42,7 @@
                                         <Font size="16.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="wbutton" mnemonicParsing="false" onAction="#pushedLowerButton" prefHeight="109.0" prefWidth="155.0" text="Run Query" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                <Button fx:id="wbutton" mnemonicParsing="false" onAction="#pushedLowerButton" prefHeight="109.0" prefWidth="155.0" text="Insert Patient" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                                 <DatePicker fx:id="in_date" GridPane.columnIndex="1" />
                                 <TextField fx:id="in_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                 <Label alignment="CENTER" prefHeight="73.0" prefWidth="178.0" text="Name" GridPane.rowIndex="1">
