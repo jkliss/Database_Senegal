@@ -15,7 +15,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI_controller">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI_controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -27,6 +27,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#changeToPaneSearchPerson" text="Switch to Person Search" />
                   <MenuItem mnemonicParsing="false" onAction="#changeToPaneInsertPerson" text="Switch to Insert Person" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToPaneAddTreamtment" text="Switch to Search Treatments of Patient (to be implemented)" />
                </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -43,7 +44,7 @@
          <children>
             <HBox prefHeight="551.0" prefWidth="900.0">
                <children>
-                  <Pane prefHeight="551.0" prefWidth="263.0" />
+                  <Pane prefHeight="551.0" prefWidth="249.0" />
                   <VBox prefHeight="551.0" prefWidth="405.0">
                      <children>
                         <Pane prefHeight="128.0" prefWidth="405.0" />

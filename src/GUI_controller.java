@@ -183,6 +183,23 @@ public class GUI_controller {
         }
     }
 
+    public void changeToPaneAddTreamtment(){
+        if(connected){
+            try {
+                Object load = FXMLLoader.load(getClass().getResource("Pane_Search_Person.fxml"));
+                main_anchor.getChildren().setAll((Node) load);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Info");
+            alert.setHeaderText("Please connect to the database first");
+            alert.showAndWait();
+        }
+    }
+
     public void infoFunction(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Help Window");
