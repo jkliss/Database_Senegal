@@ -45,7 +45,7 @@ public class PaneAddTreatment {
     private ObservableList<Person> data;
 
 
-    public void pushedLowerButton(){
+    public void pushedLowerRightButton(){
         IOManager ioManager = GUI_controller.ioManager;
         ObservableList<Person> data = insertPerson(ioManager.connection);
         TableCreator tableCreator = new TableCreator();

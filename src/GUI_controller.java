@@ -186,7 +186,7 @@ public class GUI_controller {
     public void changeToPaneAddTreamtment(){
         if(connected){
             try {
-                Object load = FXMLLoader.load(getClass().getResource("Pane_Search_Person.fxml"));
+                Object load = FXMLLoader.load(getClass().getResource("Pane_AddTreatment.fxml"));
                 main_anchor.getChildren().setAll((Node) load);
             } catch (IOException e) {
                 e.printStackTrace();
