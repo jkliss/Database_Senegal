@@ -60,7 +60,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="in_host" prefHeight="33.0" prefWidth="268.0" text="127.0.0.1" />
+                              <TextField fx:id="in_host" prefHeight="33.0" prefWidth="268.0" text="192.168.178.88" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="91.0" prefHeight="33.0" prefWidth="415.0">
@@ -70,7 +70,8 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="in_name" prefHeight="33.0" prefWidth="268.0" text="user" />
+                               <!--<TextField fx:id="in_name" prefHeight="33.0" prefWidth="268.0" text="user" />-->
+                               <TextField fx:id="in_name" prefHeight="33.0" prefWidth="268.0" text="senegal1" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="124.0" prefHeight="33.0" prefWidth="415.0">
@@ -80,10 +81,21 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <PasswordField fx:id="in_password" prefHeight="33.0" prefWidth="268.0" text="pas1P----" />
+                              <!--<PasswordField fx:id="in_password" prefHeight="33.0" prefWidth="268.0" text="pas1P\-\-\-\-" />-->
+                               <PasswordField fx:id="in_password" prefHeight="33.0" prefWidth="268.0" text="password" />
                            </children>
                         </HBox>
-                        <HBox layoutX="10.0" layoutY="157.0" prefHeight="33.0" prefWidth="415.0">
+                         <HBox layoutX="10.0" layoutY="124.0" prefHeight="33.0" prefWidth="415.0">
+                             <children>
+                                 <Label prefHeight="33.0" prefWidth="174.0" text="Database">
+                                     <font>
+                                         <Font size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <TextField fx:id="in_db" prefHeight="33.0" prefWidth="268.0" text="senegal" />
+                             </children>
+                         </HBox>
+                         <HBox layoutX="10.0" layoutY="157.0" prefHeight="33.0" prefWidth="415.0">
                            <children>
                               <Label prefHeight="33.0" prefWidth="174.0" text="Port">
                                  <font>

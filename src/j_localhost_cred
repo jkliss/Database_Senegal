@@ -1,0 +1,13 @@
+tp
+host:localhost
+uname:user
+password:pas1P----
+db:mydb
+port:3306
+
+rp
+host:192.168.178.88
+uname:senegal1
+password:password
+db:senegal
+port:3306

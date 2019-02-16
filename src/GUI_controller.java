@@ -65,6 +65,9 @@ public class GUI_controller {
     @FXML
     private TextField in_host;
 
+    @FXML
+    private TextField in_db;
+
     private ObservableList<Person> data;
 
     private Connection connection;
@@ -78,6 +81,8 @@ public class GUI_controller {
     private String name = "";
 
     private String password = "";
+
+    private  String db = "";
 
     public static IOManager ioManager = new IOManager();
 
@@ -212,9 +217,10 @@ public class GUI_controller {
         name = in_name.getText();
         host = in_host.getText();
         port = in_port.getText();
+        db = in_db.getText();
         password = in_password.getText();
         System.out.println("Start Session with credentials: " + host + ":" + port + " " + name + " " + password);
-        connected = ioManager.connectToMysql("host=" + host + ",port="+ port + ",serverTimezone=UTC,useSSL=false,verifyServerCertificate=true,allowPublicKeyRetrieval=true", "mydb", name, password);
+        connected = ioManager.connectToMysql("host=" + host + ",port="+ port + ",serverTimezone=UTC,useSSL=false,verifyServerCertificate=true,allowPublicKeyRetrieval=true", db, name, password);
         if(!connected){
             System.out.println("[-] Could not establish connection");
             connected = false;

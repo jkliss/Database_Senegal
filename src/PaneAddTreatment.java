@@ -66,7 +66,7 @@ public class PaneAddTreatment {
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
-            String select_query = "SELECT * FROM mydb.patient";
+            String select_query = "SELECT * FROM patient";
             ResultSet rs = stmt.executeQuery(select_query);
             while (rs.next()) {
                 int doctorID = rs.getInt("PatientID");
@@ -114,14 +114,14 @@ public class PaneAddTreatment {
         String email = in_email.getText();
         String telephone = in_telephone.getText();
 
-        String query = "INSERT INTO mydb.patient (PatientID, family_name, first_name, birthday, address, email, telephone_number,others) VALUES (" + ThreadLocalRandom.current().nextInt(1, 10000 + 1) + ", \"" + last_name + "\", \"" + name + "\", \"" + birthday +"\" , \"" + address + "\",\"" + email + "\", \"" + telephone + "\", \"" + treatment + "\");\n";
+        String query = "INSERT INTO patient (PatientID, family_name, first_name, birthday, address, email, telephone_number,others) VALUES (" + ThreadLocalRandom.current().nextInt(1, 10000 + 1) + ", \"" + last_name + "\", \"" + name + "\", \"" + birthday +"\" , \"" + address + "\",\"" + email + "\", \"" + telephone + "\", \"" + treatment + "\");\n";
         System.out.println("[*] "+query+":");
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
             int result = stmt.executeUpdate(query);
             System.out.println(result);
-            String select_query = "SELECT * FROM mydb.patient";
+            String select_query = "SELECT * FROM patient";
             ResultSet rs = stmt.executeQuery(select_query);
             while (rs.next()) {
                 int doctorID = rs.getInt("PatientID");
