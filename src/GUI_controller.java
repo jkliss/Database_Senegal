@@ -108,7 +108,6 @@ public class GUI_controller {
                 new PropertyValueFactory<Person,String>("location")
         );
         table.setItems(data);
-
         table.getColumns().addAll(fnameCol, snameCol, emailCol);
     }
 
